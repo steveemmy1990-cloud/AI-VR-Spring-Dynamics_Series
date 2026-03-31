@@ -12,6 +12,8 @@ build/
 
 # Misc
 .DS_Store
+API KEY OPEN AI.docx
+experiment_events_rows (2).csv
 .env.local
 .env.development.local
 .env.test.local
