@@ -1,0 +1,14 @@
+# Netlify build and deploy config for Spring Dynamics VR app
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Supabase anon key and URL are inlined into the client bundle by Vite (expected).
+# They are safe to expose: the anon key is restricted by Supabase RLS.
+# Tell Netlify not to fail the build when these env values appear in build output.
+# OPENAI_API_KEY is used only by the serverless function (netlify/functions/openai-chat.js), not in the client.
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "VITE_SUPABASE_ANON_KEY,VITE_SUPABASE_URL"
+  NODE_VERSION = "18"

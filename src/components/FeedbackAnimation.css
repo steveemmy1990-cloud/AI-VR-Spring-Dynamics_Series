@@ -1,0 +1,133 @@
+/* Disney Pixar-style feedback overlay */
+.feedback-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10003;
+  pointer-events: none;
+  animation: feedbackFadeIn 0.3s ease-out;
+}
+
+@keyframes feedbackFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.feedback-pixar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Star sparkle effect - Disney Pixar style */
+.feedback-sparkle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  animation: feedbackRotateStars 2.2s linear infinite;
+  margin-bottom: -20px;
+}
+
+@keyframes feedbackRotateStars {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.feedback-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 28px;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--distance)));
+  animation: feedbackSparkle 1.4s ease-in-out infinite;
+  animation-delay: var(--delay);
+  filter: drop-shadow(0 0 6px rgba(255, 220, 100, 0.9));
+}
+
+@keyframes feedbackSparkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--distance))) scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--distance))) scale(1.15);
+  }
+}
+
+/* Disney Pixar-style pop-up box - success */
+.feedback-pixar-box {
+  padding: 28px 36px;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 380px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  animation: feedbackBoxPop 0.4s ease-out;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes feedbackBoxPop {
+  from {
+    opacity: 0;
+    transform: scale(0.88) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.success-box {
+  background: linear-gradient(145deg, #fff9e6 0%, #fff3cc 50%, #ffe8a3 100%);
+  border: 3px solid #e6c35c;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18), 0 0 0 4px rgba(255, 220, 100, 0.35);
+}
+
+.feedback-pixar-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.feedback-pixar-title {
+  margin: 0 0 12px 0;
+  font-size: 24px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.success-box .feedback-pixar-title {
+  color: #5c4a1a;
+}
+
+.feedback-pixar-message {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.success-box .feedback-pixar-message {
+  color: #6b5a2b;
+}
+
+/* Disney Pixar-style pop-up box - failure (friendly, not harsh) */
+.failure-box {
+  background: linear-gradient(145deg, #fff0f0 0%, #ffe0e0 50%, #ffd0d0 100%);
+  border: 3px solid #e8a0a0;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18), 0 0 0 4px rgba(255, 180, 180, 0.3);
+}
+
+.failure-box .feedback-pixar-title {
+  color: #8b3a3a;
+}
+
+.failure-box .feedback-pixar-message {
+  color: #7a4a4a;
+}

@@ -1,0 +1,690 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.ui-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.instructions {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  pointer-events: auto;
+  max-width: 300px;
+}
+
+.instructions h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #00d4ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.instructions p {
+  margin: 8px 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Data Selection Styles */
+.data-selection-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 26, 51, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4000;
+}
+
+.data-selection-box {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  color: #333;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+}
+
+.data-selection-box h2 {
+  margin-top: 0;
+  color: #001a33;
+}
+
+.selection-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 2rem;
+}
+
+.format-btn {
+  background: #00d4aa;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.format-btn:hover {
+  background: #00a88a;
+  transform: scale(1.05);
+}
+
+/* Finished Button Style */
+.finish-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #00d4aa;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+}
+
+.finish-btn:hover {
+  background: #00a88a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Sign In Form Styles */
+.sign-in-box {
+  max-width: 550px !important;
+}
+
+.data-notice {
+  background: linear-gradient(135deg, #e8f4fd 0%, #d1ecf1 100%);
+  border: 1px solid #bee5eb;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.notice-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.data-notice p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #0c5460;
+}
+
+.data-notice strong {
+  color: #0c5460;
+}
+
+.sign-in-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sign-in-form label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+}
+
+.name-input {
+  padding: 15px 20px;
+  font-size: 18px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.name-input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
+}
+
+.name-input::placeholder {
+  color: #999;
+}
+
+.name-error {
+  color: #dc3545;
+  font-size: 14px;
+  text-align: left;
+  margin-top: -10px;
+}
+
+.sign-in-btn {
+  background: linear-gradient(135deg, #0056b3 0%, #004494 100%);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+}
+
+.sign-in-btn:hover {
+  background: linear-gradient(135deg, #004494 0%, #003366 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 86, 179, 0.4);
+}
+
+.sign-in-btn:active {
+  transform: translateY(0);
+}
+
+/* Watch Tutorial Button with Blinking Blue Animation */
+.watch-tutorial-btn {
+  position: absolute;
+  top: 70px; /* Positioned below the Finished button */
+  left: 20px;
+  background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 4px 15px rgba(0, 86, 179, 0.5);
+  transition: all 0.2s;
+  animation: blinkBlue 1.5s ease-in-out infinite;
+}
+
+.watch-tutorial-btn.no-blink {
+  animation: none;
+}
+
+@keyframes blinkBlue {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(0, 86, 179, 0.5);
+    background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(0, 123, 255, 0.9), 0 0 30px rgba(0, 123, 255, 0.6);
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  }
+}
+
+.watch-tutorial-btn:hover {
+  background: linear-gradient(135deg, #004494 0%, #0056b3 100%);
+  transform: translateY(-2px);
+  animation: none; /* Stop blinking on hover */
+  box-shadow: 0 6px 20px rgba(0, 86, 179, 0.7);
+}
+
+.watch-tutorial-btn:active {
+  transform: translateY(0);
+}
+
+/* Wrapper so simulation buttons sit above the Canvas */
+.simulation-buttons-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2500;
+}
+
+/* Knowledge quiz button – bottom left corner (below Watch Tutorial column, separate from control panel) */
+.quiz-btn {
+  position: absolute;
+  bottom: 24px;
+  left: 20px;
+  background: linear-gradient(135deg, #2e7d32 0%, #388e3c 100%);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.45);
+  transition: all 0.2s;
+}
+
+.quiz-btn:hover {
+  background: linear-gradient(135deg, #388e3c 0%, #43a047 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(46, 125, 50, 0.5);
+}
+
+.quiz-btn:active {
+  transform: translateY(0);
+}
+
+/* Level 2 / Back to Guided buttons */
+.challenge-level-btn {
+  position: absolute;
+  top: 20px;
+  left: 175px; /* Beside Finished button with gap */
+  background: linear-gradient(135deg, #6a0dad 0%, #4a0080 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.4);
+  transition: all 0.2s;
+}
+
+.challenge-level-btn:hover {
+  background: linear-gradient(135deg, #4a0080 0%, #2d004d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(106, 13, 173, 0.5);
+}
+
+.back-to-guided-btn {
+  position: absolute;
+  top: 20px;
+  left: 175px; /* Beside Finished button with gap */
+  background: linear-gradient(135deg, #555 0%, #333 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s;
+}
+
+.back-to-guided-btn:hover {
+  background: linear-gradient(135deg, #444 0%, #222 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Level 2 locked message popup */
+.level2-locked-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.level2-locked-box {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 2px solid #6a0dad;
+}
+
+.level2-locked-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.level2-locked-box h3 {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 22px;
+}
+
+.level2-locked-box p {
+  margin: 0 0 10px 0;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.level2-locked-hint {
+  font-size: 14px !important;
+  color: #666 !important;
+  margin-top: 15px !important;
+  margin-bottom: 20px !important;
+}
+
+.level2-locked-btn {
+  background: linear-gradient(135deg, #6a0dad 0%, #4a0080 100%);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.level2-locked-btn:hover {
+  background: linear-gradient(135deg, #4a0080 0%, #2d004d 100%);
+  transform: translateY(-2px);
+}
+
+/* Level 1 incomplete message - Disney Pixar-style: warm, rounded, friendly */
+.level1-incomplete-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.level1-incomplete-box {
+  background: linear-gradient(145deg, #fff9e6 0%, #fff3cc 50%, #ffe8a3 100%);
+  padding: 32px 40px;
+  border-radius: 24px;
+  text-align: left;
+  max-width: 420px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(255, 220, 100, 0.4);
+  border: 3px solid #e6c35c;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  animation: level1IncompletePop 0.35s ease-out;
+}
+
+@keyframes level1IncompletePop {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.level1-incomplete-icon {
+  font-size: 52px;
+  text-align: center;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.level1-incomplete-box h3 {
+  margin: 0 0 12px 0;
+  color: #5c4a1a;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.level1-incomplete-box > p {
+  margin: 0 0 16px 0;
+  color: #6b5a2b;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.level1-incomplete-list {
+  margin: 0 0 18px 0;
+  padding-left: 24px;
+  color: #5c4a1a;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.level1-incomplete-list li {
+  margin-bottom: 6px;
+}
+
+.level1-incomplete-note {
+  margin: 0 0 22px 0 !important;
+  font-size: 14px !important;
+  color: #7a6a3a !important;
+  font-style: italic;
+  text-align: center;
+}
+
+.level1-incomplete-btn {
+  display: block;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #7cb342 0%, #558b2f 100%);
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(124, 179, 66, 0.45);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.level1-incomplete-btn:hover {
+  background: linear-gradient(180deg, #8bc34a 0%, #689f38 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(124, 179, 66, 0.5);
+}
+
+/* Must click Finished before Level 2 - Disney Pixar-style */
+.finish-first-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.finish-first-box {
+  background: linear-gradient(160deg, #fffbf0 0%, #fff5e0 45%, #ffefcc 100%);
+  padding: 32px 40px;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 440px;
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(230, 195, 92, 0.35);
+  border: 3px solid #e6c35c;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  animation: finishFirstPop 0.35s ease-out;
+}
+
+@keyframes finishFirstPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.finish-first-icon {
+  font-size: 48px;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.finish-first-box h3 {
+  margin: 0 0 16px 0;
+  color: #5c4a1a;
+  font-size: 24px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.finish-first-lead {
+  margin: 0 0 12px 0;
+  color: #6b5a2b;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.finish-first-lead strong {
+  color: #5c4a1a;
+}
+
+.finish-first-note {
+  margin: 0 0 24px 0;
+  color: #7a6a3a;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.finish-first-btn {
+  display: inline-block;
+  background: linear-gradient(145deg, #e6c35c 0%, #d4a84b 100%);
+  color: #5c4a1a;
+  border: 2px solid #c9a227;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.finish-first-btn:hover {
+  background: linear-gradient(145deg, #f0d060 0%, #e6c35c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 195, 92, 0.4);
+}
+
+/* Knowledge test locked – complete experiment and take reading first (Disney Pixar-style) */
+.quiz-locked-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.quiz-locked-box {
+  background: linear-gradient(160deg, #fffbf0 0%, #fff5e0 45%, #ffefcc 100%);
+  padding: 32px 40px;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 440px;
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(230, 195, 92, 0.35);
+  border: 3px solid #e6c35c;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  animation: quizLockedPop 0.35s ease-out;
+}
+
+@keyframes quizLockedPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.quiz-locked-icon {
+  font-size: 48px;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.quiz-locked-box h3 {
+  margin: 0 0 16px 0;
+  color: #5c4a1a;
+  font-size: 24px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.quiz-locked-lead {
+  margin: 0 0 12px 0;
+  color: #6b5a2b;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.quiz-locked-hint {
+  margin: 0 0 24px 0;
+  color: #7a6a3a;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.quiz-locked-btn {
+  display: inline-block;
+  background: linear-gradient(145deg, #e6c35c 0%, #d4a84b 100%);
+  color: #5c4a1a;
+  border: 2px solid #c9a227;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.quiz-locked-btn:hover {
+  background: linear-gradient(145deg, #f0d060 0%, #e6c35c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 195, 92, 0.4);
+}

@@ -1,0 +1,100 @@
+.welcome-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #e64e4e 0%, #b30000 50%, #330000 100%) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+.welcome-content {
+  text-align: center;
+  z-index: 10;
+}
+
+.welcome-top-text {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-title {
+  font-size: 5rem;
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.1;
+}
+
+.welcome-subtitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-note {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 3rem;
+  opacity: 0.95;
+}
+
+.enter-button {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 1.5rem 4rem;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.enter-button:hover {
+  background-color: #004494;
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.enter-button:active {
+  transform: scale(0.98);
+}
+
+/* Decorative tech lines simulation */
+.tech-lines.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  opacity: 0.3;
+  background-image: 
+    linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.2) 95%),
+    linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+  mask-image: linear-gradient(to right, black, transparent);
+}
+
+/* Add circles to tech lines */
+.tech-lines.left::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 100%;
+  height: 80%;
+  background-image: radial-gradient(circle, white 2px, transparent 2px);
+  background-size: 50px 50px;
+}
